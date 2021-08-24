@@ -7,7 +7,7 @@ module.exports = {
         name: 'username',
         type: 'input',
         message: 'Enter your GitHub username or e-mail address:',
-        validate: function( value ) {
+        validate: function (value) {
           if (value.length) {
             return true;
           } else {
@@ -19,7 +19,7 @@ module.exports = {
         name: 'password',
         type: 'password',
         message: 'Enter your password:',
-        validate: function(value) {
+        validate: function (value) {
           if (value.length) {
             return true;
           } else {
@@ -33,15 +33,34 @@ module.exports = {
   },
 
   askIgnoreFiles: (filelist) => {
-    const questions = [
-      {
-        type: 'checkbox',
-        name: 'ignore',
-        message: 'Select the files and/or folders you wish to ignore:',
-        choices: filelist,
-        default: ['node_modules', 'bower_components']
-      }
+
+  },
+
+  input: () => {
+
+  },
+
+
+  select: (name, message, choices) => {
+    const questions = [{
+      type: 'rawlist',
+      name: name,
+      message: message,
+      choices: choices
+    }
     ];
     return inquirer.prompt(questions);
   },
+
+
+  selectMultiple: (name, message, choices) => {
+    const questions = [{
+      type: 'checkbox',
+      name: name,
+      message: message,
+      choices: choices
+    }
+    ];
+    return inquirer.prompt(questions);
+  }
 };

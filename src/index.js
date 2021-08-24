@@ -1,20 +1,37 @@
-const chalk = require('chalk');
-const clear  = require( 'clear');
-const figlet  = require( 'figlet');
-const inquirer  = require( './lib/inquirer');
+require('dotenv').config()
 
-clear();
+const header = require("./core/header");
+const { menu, selectedMenuOption } = require("./core/menu");
 
-console.log(
-    chalk.yellow(
-        figlet.textSync('My Beauty CLI   =)')
-    )
-);
+header();
+
+menu()
+    .then(option => selectedMenuOption(option))
+    .then(() => console.log("Finish"));
 
 
 
-// const run = async () => {
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  const run = async () => {
+
 //     const ignore = await inquirer.askIgnoreFiles(['opa', 'teste']);
 //     console.log(ignore);
 
@@ -28,43 +45,53 @@ console.log(
 
 
 
-// :::::         :::::
-// ::::: SPINNER :::::
-// :::::         :::::
-// const Spinner = require("./lib/spinner");
-// const spin = new Spinner('Teste');
-// spin.start();
-
-// setTimeout(() => {
-//     spin.stop();
-// }, 4000);
-
-
-const exec = require('child_process').exec;
-const azLogin = exec('sh src/az-login.sh');
-azLogin.stdout.on('data', (data)=>{
-    console.log(data); 
-    // do whatever you want here with data
-});
-azLogin.stderr.on('data', (data)=>{
-    console.error(data);
-});
 
 
 
-const showLocations = exec('sh src/az-locations.sh');
-const Spinner = require("./lib/spinner");
-const spin = new Spinner('Loading locations');
-spin.start();
 
-setTimeout(() => {
-    spin.stop();
-}, 4000);
 
-showLocations.stdout.on('data', (data)=>{
-    console.log(data); 
-    // do whatever you want here with data
-});
-showLocations.stderr.on('data', (data)=>{
-    console.error(data);
-});
+
+// const exec = require('child_process').exec;
+
+// const azLogin = async () => {
+
+//     const azLogin = exec('ls');
+//     azLogin.stdout.on('data', (data) => {
+//         const arraySubs = eval(data);
+
+//         const subscriptions = arraySubs.map(subscription => {
+//             return {name: subscription.name, id: subscription.id}
+//         })
+
+//         console.log(subscriptions);
+
+//         azLocations();
+//     });
+//     azLogin.stderr.on('data', (data) => {
+//         console.error(data);
+//     });
+// };
+
+// azLogin();
+
+
+
+// const azLocations = async () => {
+//     console.log("AZ Locations");
+//     const showLocations = exec('sh src/az-locations.sh');
+    
+//     showLocations.stdout.on('data', (data) => {
+//         console.log(data);
+//     });
+//     showLocations.stderr.on('data', (data) => {
+//         console.error(data);
+//     });
+// };
+
+
+
+
+
+
+
+
