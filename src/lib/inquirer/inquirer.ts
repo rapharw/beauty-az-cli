@@ -1,13 +1,15 @@
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
+import Choice from "../../lib/inquirer/choice";
 
-module.exports = {
-  askGithubCredentials: () => {
+export default {
+
+  templateInput: () => {
     const questions = [
       {
         name: 'username',
         type: 'input',
-        message: 'Enter your GitHub username or e-mail address:',
-        validate: function (value) {
+        message: 'Enter your username or e-mail address:',
+        validate: function (value: any) {
           if (value.length) {
             return true;
           } else {
@@ -19,7 +21,7 @@ module.exports = {
         name: 'password',
         type: 'password',
         message: 'Enter your password:',
-        validate: function (value) {
+        validate: function (value: any) {
           if (value.length) {
             return true;
           } else {
@@ -32,16 +34,8 @@ module.exports = {
     return inquirer.prompt(questions);
   },
 
-  askIgnoreFiles: (filelist) => {
 
-  },
-
-  input: () => {
-
-  },
-
-
-  select: (name, message, choices) => {
+  select: (name: string, message: string, choices: Choice[]) => {
     const questions = [{
       type: 'rawlist',
       name: name,
@@ -53,7 +47,7 @@ module.exports = {
   },
 
 
-  selectMultiple: (name, message, choices) => {
+  selectMultiple: (name: string, message: string, choices: Choice[]) => {
     const questions = [{
       type: 'checkbox',
       name: name,
@@ -63,4 +57,5 @@ module.exports = {
     ];
     return inquirer.prompt(questions);
   }
+
 };

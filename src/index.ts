@@ -1,13 +1,71 @@
 require('dotenv').config()
 
-const header = require("./core/header");
-const { menu, selectedMenuOption } = require("./core/menu");
+import JupiterApp from "./app/jupiter-app";
+import clear from "clear";
 
-header();
+clear();
 
-menu()
-    .then(option => selectedMenuOption(option))
-    .then(() => console.log("Finish"));
+new JupiterApp().execute();
+
+
+
+
+
+
+
+
+
+
+// import inquirer from "./lib/inquirer/inquirer";
+// import Choice from "./lib/inquirer/choice";
+// import { black } from "chalk";
+
+// const choices: Choice [] = [];
+
+// const choice1 = new Choice("nameChoice1", "shortChoice1", "valueChoice1");
+// const choice2 = new Choice("nameChoice2", "shortChoice2", "valueChoice2");
+
+// choices.push(choice1);
+// choices.push(choice2);
+
+// async function opa(){
+//     const result = await inquirer.select("name1", "message 1", choices);
+//     console.log(result);
+// }
+
+// opa();
+
+
+
+
+// import Login from "./options/az-login/login"
+// console.log(Reflect.has(Login.prototype, 'execute'))
+// console.log(Reflect.ownKeys(Login));
+// console.log(typeof Login.prototype);
+
+
+
+
+// require('dotenv').config()
+
+// import header from "./menu/header";
+// header.show();
+
+// import menu from "./menu/menu"
+// menu.show();
+
+
+
+
+
+
+// import { login, menu, selectedMenuOption } from "./core/manager.js";
+
+// login().
+
+// menu()
+//     .then((option) => selectedMenuOption(option))
+//     .then(() => console.log("Finish"));
 
 
 

@@ -17,7 +17,7 @@ const getFiles = function (dirPath, arrayOfFiles) {
             if (file !== 'models')
                 arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file !== 'index.js'){
+            if (file !== 'options-menu.js'){
                 console.log(path.join(dirPath, "/", file));
                 arrayOfFiles.push(path.join(dirPath, "/", file))
             }
@@ -37,5 +37,5 @@ options.forEach(element => {
     arrayOfOptions.push(new Option());
 });
 
-const Options = require("./models/options");
+const Options = require("./models/options-menu");
 module.exports = new Options(arrayOfOptions);
