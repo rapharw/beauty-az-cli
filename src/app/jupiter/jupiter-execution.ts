@@ -39,7 +39,7 @@ export default class JupiterExecution implements ApplicationExecution {
             wizardIndex.execute();
         }
         else
-            throw new Error("Something went wrong on performSelection WizardIndex!!!")
+            throw new Error("Something went wrong on performSelection WizardIndex [jupiter] !!!")
     }
 
 }

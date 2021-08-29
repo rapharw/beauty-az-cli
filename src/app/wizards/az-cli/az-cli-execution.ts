@@ -1,7 +1,9 @@
 import ApplicationExecution from "../../application-execution";
+import OperationIndex from "../../operation-index";
 import WizardIndex from "../../wizard-index";
 import azCliHeader from "./az-cli-header";
-import AzCliOptions from "./az-cli-options";
+import AzCliOperations from "./az-cli-operations";
+import azCliQuestions from "./az-cli-questions";
 
 export default class AzCliExecution implements ApplicationExecution {
 
@@ -19,26 +21,27 @@ export default class AzCliExecution implements ApplicationExecution {
     async showQuestions(): Promise<WizardIndex | undefined> {
         console.log("showQuestions az-cli");
 
-        const azCliOptions = new AzCliOptions();
-        // const jupiterWizard = new JupiterWizardsV2();
+        const azCliOperations = new AzCliOperations();
+        
+        const question = azCliQuestions(azCliOperations.getChoices());
+        
+        const resultSelectionQuestion = await question.ask();
+        
+        const operationIndex = azCliOperations.getOperation(resultSelectionQuestion.selection);
 
-        // const question = jupiterQuestions(jupiterWizard.getChoices());
-
-        // const resultSelectionQuestion = await question.ask();
-
-        // const wizardIndex = jupiterWizard.getWizard(resultSelectionQuestion.selection);
-
-        // return wizardIndex;
-
-        return undefined;
+        return operationIndex;
     }
 
 
     /**
      * @override
      */
-    performSelection(wizardIndex: WizardIndex): void {
-        console.log("performSelection azcli")
+    performSelection(operationIndex: OperationIndex): void {
+        if (operationIndex) {
+            operationIndex.execute();
+        }
+        else
+            throw new Error("Something went wrong on performSelection OperationIndex [az-cli] !!!")
     }
 
 }

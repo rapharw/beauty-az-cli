@@ -1,4 +1,4 @@
-import commandExecution from "../../../../models/command-execution";
+import commandExecution from "../../../../../../wizard-options/models/command-execution";
 import Location from "./location";
 
 const printConsole = false;

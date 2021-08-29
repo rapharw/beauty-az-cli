@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import Choice from "../../../lib/inquirer/choice"
+import OperationIndex from "../../operation-index"
 import WizardIndex from "../../wizard-index"
 
 /**
@@ -19,7 +20,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file === 'index.ts') {
+            if (file === 'operation-index.ts') {
                 const array = path.join(dirPath, "/", file);
                 arrayOfFiles.push(array);
             }
@@ -29,25 +30,24 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 }
 
 
-export default class AzCliOptions {
+export default class AzCliOperations {
 
     static FILE_PATH: string = "src\\app\\wizards\\az-cli\\operations"
 
     private choices: Choice[] = [];
-    // private wizardsMap: Map<string, WizardIndex> = new Map();
+    private operationsMap: Map<string, OperationIndex> = new Map();
 
     constructor() {
 
-        getFiles(AzCliOptions.FILE_PATH).forEach(element => {
+        getFiles(AzCliOperations.FILE_PATH).forEach(element => {
+            let indexRequired = require("./" + element.replace("src\\app\\wizards\\az-cli\\", ""));
+            
+            let operationdIndex: OperationIndex = new indexRequired.default();
 
-            let indexRequired = require("../" + element.replace("src\\app\\wizards\\az-cli\\", ""));
-            console.log(indexRequired);
-            // let wizardIndex: WizardIndex = new indexRequired.default();
+            let operationChoice: Choice = operationdIndex.getChoice();
 
-            // let wizardChoice: Choice = wizardIndex.getChoice();
-
-            // this.wizardsMap.set(wizardChoice.value, wizardIndex);
-            // this.choices.push(wizardChoice);
+            this.operationsMap.set(operationChoice.value, operationdIndex);
+            this.choices.push(operationChoice);
         });
 
 
@@ -57,8 +57,8 @@ export default class AzCliOptions {
         return this.choices;
     }
 
-    getWizard(value: string): WizardIndex | undefined {
-        return undefined;
+    getOperation(value: string): OperationIndex | undefined {
+        return this.operationsMap.get(value);
     }
 
 }
