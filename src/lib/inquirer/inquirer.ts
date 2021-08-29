@@ -35,6 +35,33 @@ export default {
   },
 
 
+  inputText: (name: string, message: string, validation: Function) => {
+    const questions = [
+      {
+        name: name,
+        type: 'input',
+        message: message,
+        validate: validation
+      }
+    ];
+
+    return inquirer.prompt(questions);
+  },
+
+  
+  inputPassword: (name: string, message: string, validation: Function) => {
+    const questions = [
+      {
+        name: name,
+        type: 'password',
+        message: message,
+        validate: validation
+      }
+    ];
+    return inquirer.prompt(questions);
+  },
+
+
   select: (name: string, message: string, choices: Choice[]) => {
     const questions = [{
       type: 'rawlist',

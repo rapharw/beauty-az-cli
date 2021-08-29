@@ -13,12 +13,10 @@ export default abstract class Wizard {
 
     async execute(wizardExecution: WizardExecution) {
 
-        console.log("[wizard] show header");
         wizardExecution.showHeader();
 
-        console.log("[wizard] Showing Question(s)");
-        const answer = await wizardExecution.showQuestions(this.questions);
+        const answers = await wizardExecution.showQuestions(this.questions);
 
-        wizardExecution.performSelectionQuestions(answer);
+        wizardExecution.performSelection(answers);
     }
 }

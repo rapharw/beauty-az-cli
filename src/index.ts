@@ -1,11 +1,31 @@
 require('dotenv').config()
 
-import JupiterApp from "./app/jupiter-app";
 import clear from "clear";
+import JupiterIndex from "./app/jupiter/index";
 
 clear();
 
-new JupiterApp().execute();
+JupiterIndex();
+
+
+
+
+
+
+
+
+
+
+
+
+// require('dotenv').config()
+
+// import JupiterApp from "./app_v1/jupiter-app";
+// import clear from "clear";
+
+// clear();
+
+// new JupiterApp().execute();
 
 
 
