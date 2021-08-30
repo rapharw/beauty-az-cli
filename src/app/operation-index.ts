@@ -7,5 +7,5 @@ export default abstract class OperationIndex {
     }
 
     abstract getChoice(): Choice;
-    abstract execute (): void;
+    abstract execute (): Promise<any>;
 }

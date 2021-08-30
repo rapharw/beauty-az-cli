@@ -1,6 +1,5 @@
 import ApplicationExecution from "../../application-execution";
 import OperationIndex from "../../operation-index";
-import WizardIndex from "../../wizard-index";
 import azCliHeader from "./az-cli-header";
 import AzCliOperations from "./az-cli-operations";
 import azCliQuestions from "./az-cli-questions";
@@ -18,9 +17,8 @@ export default class AzCliExecution implements ApplicationExecution {
     /**
      * @override
      */
-    async showQuestions(): Promise<WizardIndex | undefined> {
-        console.log("showQuestions az-cli");
-
+    async showQuestions(): Promise<OperationIndex | undefined> {
+        
         const azCliOperations = new AzCliOperations();
         
         const question = azCliQuestions(azCliOperations.getChoices());

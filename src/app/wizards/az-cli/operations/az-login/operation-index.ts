@@ -11,7 +11,7 @@ export default class AzCliAzLoginOperationIndex  extends OperationIndex{
             `${process.env.AZCLI_AZ_LOGIN_CHOICE_VALUE}`);
     }
 
-    execute (): void {
+    async execute (): Promise<any> {
         const login = new Login();
         login.execute();
     }

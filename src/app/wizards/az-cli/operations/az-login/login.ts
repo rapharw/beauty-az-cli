@@ -1,10 +1,8 @@
 import Execution from "../../../../../menu/models/execution";
+import Subscription from "../../../../../wizard-options/az-cli/operations/az-login/subscription";
 import azLogin from "./az-login-command";
-import Subscription from "./subscription";
 
 export default class Login implements Execution {
-
-    subscriptions: Subscription[] = []
 
     constructor(
     ) { }
@@ -14,7 +12,6 @@ export default class Login implements Execution {
      */
     async execute() {
         const subscriptions = await azLogin();
-        this.subscriptions = subscriptions;
-        console.log(this.subscriptions);
+        return subscriptions;
     }
 }

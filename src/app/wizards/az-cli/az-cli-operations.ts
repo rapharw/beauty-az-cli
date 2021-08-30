@@ -2,7 +2,6 @@ import fs from "fs"
 import path from "path"
 import Choice from "../../../lib/inquirer/choice"
 import OperationIndex from "../../operation-index"
-import WizardIndex from "../../wizard-index"
 
 /**
  * 

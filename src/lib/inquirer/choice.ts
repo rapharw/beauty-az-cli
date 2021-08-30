@@ -14,7 +14,7 @@ export default class Choice{
         public short: string,
         public value: string,
     ) { }
-    
+
     json(){
         return JSON.stringify(this);
     }

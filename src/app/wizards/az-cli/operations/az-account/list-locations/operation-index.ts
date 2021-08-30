@@ -11,7 +11,8 @@ export default class AzCliAzAccountListLocationsOperationIndex  extends Operatio
             `${process.env.AZCLI_AZ_ACCOUNT_LISTLOCATIONS_CHOICE_VALUE}`);
     }
 
-    execute (): void {
+    async execute () {
+
         const account = new Account();
         account.listLocations();
     }
