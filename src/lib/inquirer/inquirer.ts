@@ -1,4 +1,6 @@
 import inquirer from 'inquirer';
+inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
+
 import Choice from "../../lib/inquirer/choice";
 
 export default {
@@ -48,7 +50,7 @@ export default {
     return inquirer.prompt(questions);
   },
 
-  
+
   inputPassword: (name: string, message: string, validation: Function) => {
     const questions = [
       {
@@ -61,6 +63,26 @@ export default {
     return inquirer.prompt(questions);
   },
 
+
+  inputTextAutocomplete: (name: string, message: string, choices: Choice[]) => {
+    const questions = [
+      {
+        name: name,
+        type: 'autocomplete',
+        message: message,
+        default: 'a',
+        suggestOnly: false,
+        pageSize: 15,
+        source: function (answersSoFar: [], input: string) {
+          input = input || '';
+          return choices.filter((choice: Choice) => choice.name.toLowerCase().startsWith(input.toLowerCase()));
+        }
+      }
+    ];
+
+    return inquirer.prompt(questions);
+
+  },
 
   select: (name: string, message: string, choices: Choice[]) => {
     const questions = [{

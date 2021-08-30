@@ -1,4 +1,6 @@
+import AppService from "../app-service";
+
 export default interface List {
 
-    list(subscription: string): Promise<any>;
+    listAppServices(subscription: string, resourceGroup: string): Promise<AppService[]>;
 }

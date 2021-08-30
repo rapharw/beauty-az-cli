@@ -1,5 +1,6 @@
 import Choice from "../../../../../../lib/inquirer/choice";
 import OperationIndex from "../../../../../operation-index";
+import resourceGroupQuestionSelect from "../../shared/resource-group-question-input-autocomplete ";
 import subscriptionQuestionSelect from "../../shared/subscription-question-select";
 import WebApp from "../webapp";
 
@@ -14,12 +15,17 @@ export default class AzCliAzWebAppListOperationIndex extends OperationIndex {
 
 
     async execute(): Promise<any> {
-        const result = await subscriptionQuestionSelect();
+        // subscription
+        const subscriptionsSelect = await subscriptionQuestionSelect();
+        const subscriptionResult = await subscriptionsSelect.ask();
         
-        const ask = await result.ask();
+        // resource group
+        const resourceGroupAutocomplete = await resourceGroupQuestionSelect(subscriptionResult.subscription);
+        const resourceGroupResult = await resourceGroupAutocomplete.ask();
         
         const webbApp = new WebApp();
-        await webbApp.list(ask);
+        const appServices = await webbApp.listAppServices(subscriptionResult.subscription, resourceGroupResult.resourceGroup);
+        console.log(appServices);
     }
 
 }
