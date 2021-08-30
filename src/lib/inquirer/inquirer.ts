@@ -84,6 +84,20 @@ export default {
 
   },
 
+  confirm: (name: string, message: string) => {
+    const questions = [
+      {
+        name: name,
+        type: 'confirm',
+        message: message,
+        default: false
+      }
+    ];
+
+    return inquirer.prompt(questions);
+
+  },
+
   select: (name: string, message: string, choices: Choice[]) => {
     const questions = [{
       type: 'rawlist',

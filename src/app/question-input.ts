@@ -1,7 +1,7 @@
 import inquirer from "../lib/inquirer/inquirer";
 import Question from "./question";
 
-export default abstract class QuestionInput extends Question {
+export default class QuestionInput extends Question {
 
     constructor(public name: string, public message: string, public validation: Function){
         super(name, message);
