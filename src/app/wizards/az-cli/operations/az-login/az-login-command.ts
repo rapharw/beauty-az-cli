@@ -1,4 +1,4 @@
-import commandExecution from "../../../../../wizard-options/models/command-execution";
+import commandExecution from "../../../../command-execution";
 import Subscription from "./subscription";
 
 

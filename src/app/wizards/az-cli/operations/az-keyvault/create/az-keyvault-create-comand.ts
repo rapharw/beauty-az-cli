@@ -1,4 +1,4 @@
-import commandExecution from "../../../../models/command-execution";
+import commandExecution from "../../../../../command-execution";
 
 const printConsole = false;
 

@@ -4,9 +4,8 @@ export default class KeyVault implements Create {
 
     constructor() {
     }
-
-    listLocations(): void {
-        azAccountListLocationsCommand().then(locations => console.log(locations));
+    create(azLocation: string, keyvault: string, resourceGroup: string, subscription: string): Promise<any> {
+        throw new Error("Method not implemented.");
     }
     
 }
