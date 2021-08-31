@@ -1,17 +1,11 @@
 require('dotenv').config()
 
-console.log("__dirname")
-console.log(__dirname);
+import clear from "clear";
+import JupiterIndex from "./app/jupiter/index";
 
-console.log("__filename")
-console.log(__filename);
+clear();
 
-// import clear from "clear";
-// import JupiterIndex from "./app/jupiter/index";
-
-// clear();
-
-// JupiterIndex();
+JupiterIndex();
 
 
 

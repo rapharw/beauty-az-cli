@@ -72,6 +72,10 @@
 ## ---------
 FROM centos/nodejs-10-centos7
 
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
+
 USER root
 
 ## Import the Microsoft repository key
