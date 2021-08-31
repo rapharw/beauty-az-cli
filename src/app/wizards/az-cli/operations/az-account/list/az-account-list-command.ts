@@ -1,4 +1,5 @@
 import commandExecution from "../../../../../command-execution";
+import azCliWarningNotLogged from "../../../az-cli-warning-not-logged";
 import Subscription from "../../az-login/subscription";
 
 const printConsole = false;
@@ -15,7 +16,8 @@ export default () => {
                         return new Subscription(subscription.id, subscription.name);
                     })
                 );
-            })
+            },
+            azCliWarningNotLogged)
         }
         catch (e) {
             console.log(e);

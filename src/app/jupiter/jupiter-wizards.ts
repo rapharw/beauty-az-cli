@@ -19,7 +19,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file === 'wizard-index.ts') {
+            if (file === 'wizard-index.js') {
                 const array = path.join(dirPath, "/", file);
                 arrayOfFiles.push(array);
             }
@@ -31,7 +31,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 
 export default class JupiterWizards {
 
-    static FILE_PATH: string = "src\\app\\wizards"
+    static FILE_PATH: string = "dist/app/wizards"
 
     private choices: Choice[] = [];
     private wizardsMap: Map<string, WizardIndex> = new Map();
@@ -39,8 +39,7 @@ export default class JupiterWizards {
     constructor() {
 
         getFiles(JupiterWizards.FILE_PATH).forEach(element => {
-
-            let indexRequired = require("../" + element.replace("src\\app\\", ""));
+            let indexRequired = require("../" + element.replace("dist/app/", ""));
             let wizardIndex: WizardIndex = new indexRequired.default();
 
             let wizardChoice: Choice = wizardIndex.getChoice();

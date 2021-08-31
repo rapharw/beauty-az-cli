@@ -19,7 +19,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file === 'operation-index.ts') {
+            if (file === 'operation-index.js') {
                 const array = path.join(dirPath, "/", file);
                 arrayOfFiles.push(array);
             }
@@ -31,7 +31,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 
 export default class AzCliOperations {
 
-    static FILE_PATH: string = "src\\app\\wizards\\az-cli\\operations"
+    static FILE_PATH: string = "dist/app/wizards/az-cli/operations"
 
     private choices: Choice[] = [];
     private operationsMap: Map<string, OperationIndex> = new Map();
@@ -39,7 +39,7 @@ export default class AzCliOperations {
     constructor() {
 
         getFiles(AzCliOperations.FILE_PATH).forEach(element => {
-            let indexRequired = require("./" + element.replace("src\\app\\wizards\\az-cli\\", ""));
+            let indexRequired = require("./" + element.replace("dist/app/wizards/az-cli/", ""));
             
             let operationdIndex: OperationIndex = new indexRequired.default();
 
@@ -48,7 +48,6 @@ export default class AzCliOperations {
             this.operationsMap.set(operationChoice.value, operationdIndex);
             this.choices.push(operationChoice);
         });
-
 
     }
 

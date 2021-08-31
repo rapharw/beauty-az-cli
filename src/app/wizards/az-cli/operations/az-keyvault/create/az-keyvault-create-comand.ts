@@ -1,4 +1,5 @@
 import commandExecution from "../../../../../command-execution";
+import azCliWarningNotLogged from "../../../az-cli-warning-not-logged";
 
 const printConsole = false;
 
@@ -15,7 +16,8 @@ export default (azLocation: string, keyvault: string, resourceGroup: string, sub
                 //     })
                 // );
                 resolve(true);
-            })
+            },
+            azCliWarningNotLogged)
         } 
         catch (e) {
             console.log(e);

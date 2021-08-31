@@ -1,6 +1,7 @@
 import Choice from "../../../../../../lib/inquirer/choice";
 import OperationIndex from "../../../../../operation-index";
 import Account from "../account";
+import Location from "./location";
 
 export default class AzCliAzAccountListLocationsOperationIndex  extends OperationIndex{
 
@@ -14,7 +15,7 @@ export default class AzCliAzAccountListLocationsOperationIndex  extends Operatio
     async execute () {
 
         const account = new Account();
-        account.listLocations();
+        account.listLocations().then(Locations => console.log(Locations));
     }
 
 }

@@ -1,4 +1,6 @@
+import Location from "./location";
+
 export default interface ListLocations {
     
-    listLocations(): void;
+    listLocations(): Promise<Location[]>;
 }

@@ -1,4 +1,6 @@
 import commandExecution from "../../../../../command-execution";
+import azCliWarningNotLogged from "../../../az-cli-warning-not-logged";
+import ResourceGroup from "../../az-group/resource-group";
 import Location from "./location";
 
 const printConsole = false;
@@ -7,15 +9,16 @@ export default () => {
     
     return new Promise<Location[]>((resolve, reject) => {
         try {
-            commandExecution('az account list-locations', printConsole, (data: string) => {
+            commandExecution('az account list-locations -o json', printConsole, (data: any) => {
                 
                 const locations: Location[] = JSON.parse(data);
                 resolve(
-                    locations.map(location => {
+                    locations.map((location: Location) => {
                         return { name: location.name, displayName: location.displayName }
                     })
                 );
-            })
+            },
+            azCliWarningNotLogged)
         } 
         catch (e) {
             console.log(e);

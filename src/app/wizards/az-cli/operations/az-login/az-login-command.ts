@@ -1,6 +1,7 @@
-import commandExecution from "../../../../command-execution";
-import Subscription from "./subscription";
 
+import commandExecutionDeprecated from "../../../../command-execution-deprecated";
+import azCliWarningNotLogged from "../../az-cli-warning-not-logged";
+import Subscription from "./subscription";
 
 const printConsole = false;
 
@@ -8,7 +9,7 @@ export default () => {
     
     return new Promise<Subscription[]>((resolve, reject) => {
         try {
-            commandExecution('az login --use-device-code', printConsole, (data: string) => {
+            commandExecutionDeprecated('az login --use-device-code', printConsole, (data: string) => {
                 
                 const subscriptions: Subscription[] = JSON.parse(data);
                 resolve(
@@ -16,7 +17,8 @@ export default () => {
                         return new Subscription(subscription.id, subscription.name);
                     })
                 );
-            })
+            },
+            azCliWarningNotLogged)
         } 
         catch (e) {
             console.log(e);

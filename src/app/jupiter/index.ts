@@ -1,7 +1,7 @@
 import JupiterApp from "./jupiter-app";
 
-export default () => {
+export default async () => {
     
     const jupiterApp = new JupiterApp();
-    jupiterApp.execute();
+    await jupiterApp.execute();
 }
