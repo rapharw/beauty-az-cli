@@ -19,7 +19,13 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file === 'wizard-index.js') {
+            if (file.includes('-wizard-index.js')) {
+                console.log(path.resolve(__dirname, file))
+                console.log(path.basename(path.dirname(file)));
+                console.log(path.dirname(file));
+                console.log(path.basename(file));
+                console.log(dirPath);
+                console.log(file);
                 const array = path.join(dirPath, "/", file);
                 arrayOfFiles.push(array);
             }
@@ -29,23 +35,27 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 }
 
 
-export default class JupiterWizards {
+export default class GetWizards {
 
-    static FILE_PATH: string = "dist/app/wizards"
+    // static FILE_PATH: string = "dist/app/wizards"
+    static FILE_PATH: string = __dirname
 
     private choices: Choice[] = [];
     private wizardsMap: Map<string, WizardIndex> = new Map();
 
     constructor() {
 
-        getFiles(JupiterWizards.FILE_PATH).forEach(element => {
-            let indexRequired = require("../" + element.replace("dist/app/", "").replace("dist\\app\\", ""));
-            let wizardIndex: WizardIndex = new indexRequired.default();
+        getFiles(GetWizards.FILE_PATH).forEach(element => {
+            // console.log(element);
+            // let indexRequired = require("./" + element);
+            
+            // let indexRequired = require("../" + element.replace("dist/app/", "").replace("dist\\app\\", ""));
+            // let wizardIndex: WizardIndex = new indexRequired.default();
 
-            let wizardChoice: Choice = wizardIndex.getChoice();
+            // let wizardChoice: Choice = wizardIndex.getChoice();
 
-            this.wizardsMap.set(wizardChoice.value, wizardIndex);
-            this.choices.push(wizardChoice);
+            // this.wizardsMap.set(wizardChoice.value, wizardIndex);
+            // this.choices.push(wizardChoice);
         });
 
 
