@@ -39,7 +39,7 @@ export default class JupiterWizards {
     constructor() {
 
         getFiles(JupiterWizards.FILE_PATH).forEach(element => {
-            let indexRequired = require("../" + element.replace("dist/app/", ""));
+            let indexRequired = require("../" + element.replace("dist/app/", "").replace("dist\\app\\", ""));
             let wizardIndex: WizardIndex = new indexRequired.default();
 
             let wizardChoice: Choice = wizardIndex.getChoice();

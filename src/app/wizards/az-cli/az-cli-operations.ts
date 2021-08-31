@@ -39,7 +39,7 @@ export default class AzCliOperations {
     constructor() {
 
         getFiles(AzCliOperations.FILE_PATH).forEach(element => {
-            let indexRequired = require("./" + element.replace("dist/app/wizards/az-cli/", ""));
+            let indexRequired = require("./" + element.replace("dist/app/wizards/az-cli/", "").replace("dist\\app\\wizards\\az-cli\\", ""));
             
             let operationdIndex: OperationIndex = new indexRequired.default();
 
