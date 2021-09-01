@@ -1,7 +1,7 @@
 import ApplicationExecution from "../../application-execution";
 import OperationIndex from "../../operation-index";
 import azCliHeader from "./az-cli-header";
-import AzCliOperations from "./az-cli-operations";
+import GetOperations from "./get-operations";
 import azCliQuestions from "./az-cli-questions";
 
 export default class AzCliExecution implements ApplicationExecution {
@@ -19,13 +19,13 @@ export default class AzCliExecution implements ApplicationExecution {
      */
     async showQuestions(): Promise<OperationIndex | undefined> {
         
-        const azCliOperations = new AzCliOperations();
+        const azCliGetOperations = GetOperations();
         
-        const question = azCliQuestions(azCliOperations.getChoices());
+        const question = azCliQuestions(azCliGetOperations.getChoices());
         
         const resultSelectionQuestion = await question.ask();
         
-        const operationIndex = azCliOperations.getOperation(resultSelectionQuestion.selection);
+        const operationIndex = azCliGetOperations.getOperation(resultSelectionQuestion.selection);
 
         return operationIndex;
     }

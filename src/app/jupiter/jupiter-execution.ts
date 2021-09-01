@@ -2,7 +2,7 @@ import ApplicationExecution from "../application-execution";
 import WizardIndex from "../wizard-index";
 import jupiterHeader from "./jupiter-header";
 import jupiterQuestions from "./jupiter-questions";
-import JupiterWizards from "./jupiter-wizards";
+import JupiterGetWizards from "./jupiter-get-wizards";
 
 export default class JupiterExecution implements ApplicationExecution {
 
@@ -19,7 +19,7 @@ export default class JupiterExecution implements ApplicationExecution {
      */
     async showQuestions(): Promise<WizardIndex | undefined> {
 
-        const jupiterWizard = new JupiterWizards();
+        const jupiterWizard = JupiterGetWizards();
 
         const question = jupiterQuestions(jupiterWizard.getChoices());
 

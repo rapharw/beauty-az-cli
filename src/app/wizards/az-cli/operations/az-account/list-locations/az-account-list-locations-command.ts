@@ -1,6 +1,5 @@
 import commandExecution from "../../../../../command-execution";
 import azCliWarningNotLogged from "../../../az-cli-warning-not-logged";
-import ResourceGroup from "../../az-group/resource-group";
 import Location from "./location";
 
 const printConsole = false;

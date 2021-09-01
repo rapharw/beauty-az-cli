@@ -8,7 +8,7 @@ export default (subscription: string) => {
 
     return new Promise<ResourceGroup[]>((resolve, reject) => {
         try {
-            console.log(subscription);
+            
             commandExecution(`az group list --subscription "${subscription}"`, printConsole, (data: string) => {
                 const resourceGroups: ResourceGroup[] = JSON.parse(data);
                 resolve(
