@@ -1,4 +1,4 @@
-import commandExecution from "../../../../../command-execution";
+import commandExecution from "../../../../../../app/models/command-execution/command-execution";
 import azCliWarningNotLogged from "../../../az-cli-warning-not-logged";
 import Location from "./location";
 

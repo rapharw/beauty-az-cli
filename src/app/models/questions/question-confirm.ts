@@ -1,4 +1,4 @@
-import inquirer from "../lib/inquirer/inquirer";
+import inquirer from "../../../lib/inquirer/inquirer";
 import Question from "./question";
 
 export default class QuestionConfirmation extends Question {

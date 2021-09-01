@@ -1,7 +1,7 @@
 
+import Question from "./../../../../models/questions/question";
+import QuestionInputAutocomplete from "./../../../../models/questions/question-input-autocomplete";
 import Choice from "../../../../../lib/inquirer/choice";
-import Question from "../../../../question";
-import QuestionInputAutocomplete from "../../../../question-input-autocomplete";
 import Account from "../az-account/account";
 import Location from "../az-account/list-locations/location";
 

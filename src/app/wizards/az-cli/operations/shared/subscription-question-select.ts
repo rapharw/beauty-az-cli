@@ -1,7 +1,7 @@
 
+import Question from "./../../../../models/questions/question";
+import QuestionSelect from "./../../../../models/questions/question-select";
 import Choice from "../../../../../lib/inquirer/choice";
-import Question from "../../../../question";
-import QuestionSelect from "../../../../question-select";
 import Account from "../az-account/account";
 import Subscription from "../az-login/subscription";
 

@@ -1,5 +1,5 @@
-import QuestionInput from "../../../../question-input";
-import Question from "../../../../question";
+import Question from "./../../../../models/questions/question";
+import QuestionInput from "./../../../../models/questions/question-input";
 
 
 /**

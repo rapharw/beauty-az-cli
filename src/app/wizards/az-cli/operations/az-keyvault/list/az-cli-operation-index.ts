@@ -1,5 +1,5 @@
+import OperationIndex from "./../../../../../models/operations/operation-index";
 import Choice from "../../../../../../lib/inquirer/choice";
-import OperationIndex from "../../../../../operation-index";
 import questionConfirmation from "../../shared/question-confirmation";
 import resourceGroupQuestionInputAutocomplete from "../../shared/resource-group-question-input-autocomplete ";
 import subscriptionQuestionSelect from "../../shared/subscription-question-select";

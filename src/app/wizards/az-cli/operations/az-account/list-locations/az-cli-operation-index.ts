@@ -1,8 +1,8 @@
+import OperationIndex from "./../../../../../models/operations/operation-index";
 import Choice from "../../../../../../lib/inquirer/choice";
-import OperationIndex from "../../../../../operation-index";
 import Account from "../account";
 
-export default class AzCliAzAccountListLocationsOperationIndex  extends OperationIndex{
+export default class AzCliAzAccountListLocationsOperationIndex  extends OperationIndex {
 
     getChoice(): Choice {
         return new Choice(

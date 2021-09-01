@@ -1,5 +1,5 @@
+import OperationIndex from "./../../../../models/operations/operation-index";
 import Choice from "../../../../../lib/inquirer/choice";
-import OperationIndex from "../../../../operation-index";
 import Login from "./login";
 
 export default class AzCliAzLoginOperationIndex  extends OperationIndex{

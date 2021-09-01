@@ -1,5 +1,5 @@
+import OperationIndex from "../../../../../../app/models/operations/operation-index";
 import Choice from "../../../../../../lib/inquirer/choice";
-import OperationIndex from "../../../../../operation-index";
 import subscriptionQuestionSelect from "../../shared/subscription-question-select";
 import Group from "../group";
 

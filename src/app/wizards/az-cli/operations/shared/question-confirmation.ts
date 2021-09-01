@@ -1,5 +1,5 @@
-import Question from "../../../../question";
-import QuestionConfirmation from "../../../../question-confirm";
+import Question from "./../../../../models/questions/question";
+import QuestionConfirmation from "../../../../models/questions/question-confirm";
 
 /**
  * Know how to get the question(s)

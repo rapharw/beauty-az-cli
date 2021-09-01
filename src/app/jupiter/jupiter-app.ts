@@ -1,4 +1,4 @@
-import Application from "../application";
+import Application from "../models/application/application";
 import JupiterExecution from "./jupiter-execution";
 
 export default class JupiterApp extends Application {

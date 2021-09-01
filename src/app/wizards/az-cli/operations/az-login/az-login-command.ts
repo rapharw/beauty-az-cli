@@ -1,5 +1,5 @@
 
-import commandExecutionDeprecated from "../../../../command-execution-deprecated";
+import commandExecutionDeprecated from "../../../../models/command-execution/command-execution-deprecated";
 import azCliWarningNotLogged from "../../az-cli-warning-not-logged";
 import Subscription from "./subscription";
 

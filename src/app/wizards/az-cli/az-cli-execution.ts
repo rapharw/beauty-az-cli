@@ -1,8 +1,8 @@
-import ApplicationExecution from "../../application-execution";
-import OperationIndex from "../../operation-index";
+import ApplicationExecution from "../../models/application/application-execution";
 import azCliHeader from "./az-cli-header";
 import GetOperations from "./get-operations";
 import azCliQuestions from "./az-cli-questions";
+import OperationIndex from "./../../models/operations/operation-index";
 
 export default class AzCliExecution implements ApplicationExecution {
 

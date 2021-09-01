@@ -1,5 +1,5 @@
-import OperationIndex from "@src/app/operation-index";
-import Choice from "@src/lib/inquirer/choice";
+import OperationIndex from "./../../../models/operations/operation-index";
+import Choice from "../../../../lib/inquirer/choice";
 import fs from "fs"
 import path from "path"
 

@@ -1,4 +1,4 @@
-import ApplicationExecution from "../application-execution";
+import ApplicationExecution from "../models/application/application-execution";
 import WizardIndex from "../wizard-index";
 import jupiterHeader from "./jupiter-header";
 import jupiterQuestions from "./jupiter-questions";

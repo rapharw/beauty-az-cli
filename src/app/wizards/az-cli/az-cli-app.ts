@@ -1,4 +1,4 @@
-import Application from "../../application";
+import Application from "./../../models/application/application";
 import AzCliExecution from "./az-cli-execution";
 
 export default class AzCliApp extends Application{

@@ -1,6 +1,6 @@
+import Question from "./../../models/questions/question";
+import QuestionSelect from "./../../models/questions/question-select";
 import Choice from "../../../lib/inquirer/choice";
-import Question from "../../question";
-import QuestionSelect from "../../question-select";
 
 /**
  * Know how to get the question(s)

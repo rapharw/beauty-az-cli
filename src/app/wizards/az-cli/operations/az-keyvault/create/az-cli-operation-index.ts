@@ -1,5 +1,5 @@
+import OperationIndex from "./../../../../../models/operations/operation-index";
 import Choice from "../../../../../../lib/inquirer/choice";
-import OperationIndex from "../../../../../operation-index";
 import keyvaultQuestionInput from "../../shared/keyvault-question-input";
 import locationsQuestionInputAutocomplete from "../../shared/locations-question-input-autocomplete";
 import questionConfirmation from "../../shared/question-confirmation";

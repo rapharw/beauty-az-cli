@@ -1,6 +1,6 @@
+import Question from "./../../../../models/questions/question";
+import QuestionInputAutocomplete from "./../../../../models/questions/question-input-autocomplete";
 import Choice from "../../../../../lib/inquirer/choice";
-import Question from "../../../../question";
-import QuestionInputAutocomplete from "../../../../question-input-autocomplete";
 import AppService from "../az-webapp/app-service";
 import WebApp from "../az-webapp/webapp";
 

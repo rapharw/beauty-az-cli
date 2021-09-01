@@ -1,4 +1,4 @@
-import WizardIndex from "./wizard-index";
+import WizardIndex from "../../wizard-index";
 
 export default interface ApplicationExecution {
     

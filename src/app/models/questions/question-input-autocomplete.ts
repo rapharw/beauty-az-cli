@@ -1,5 +1,5 @@
-import Choice from "../lib/inquirer/choice";
-import inquirer from "../lib/inquirer/inquirer";
+import Choice from "../../../lib/inquirer/choice";
+import inquirer from "../../../lib/inquirer/inquirer";
 import Question from "./question";
 
 export default class QuestionInputAutocomplete extends Question {

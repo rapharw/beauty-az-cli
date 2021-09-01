@@ -1,7 +1,7 @@
 
+import Question from "./../../../../models/questions/question";
+import QuestionInputAutocomplete from "./../../../../models/questions/question-input-autocomplete";
 import Choice from "../../../../../lib/inquirer/choice";
-import Question from "../../../../question";
-import QuestionInputAutocomplete from "../../../../question-input-autocomplete";
 import Group from "../az-group/group";
 import ResourceGroup from "../az-group/resource-group";
 

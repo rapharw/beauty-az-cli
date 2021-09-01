@@ -1,4 +1,5 @@
-import Choice from "../lib/inquirer/choice";
+import Choice from "./../../../lib/inquirer/choice";
+
 
 export default abstract class OperationIndex {
 
