@@ -1,7 +1,6 @@
 import Choice from "../../../../../../lib/inquirer/choice";
 import OperationIndex from "../../../../../operation-index";
 import Account from "../account";
-import Location from "./location";
 
 export default class AzCliAzAccountListLocationsOperationIndex  extends OperationIndex{
 

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "ts-node-1": "ts-node src/app/jupiter-wizard/questions/index.ts",
+    "ts-node-1": "ts-node src/app/wizards/az-cli/get-operations.ts",
     "ts-node": "ts-node src/index.ts"
   },
   "author": "",
