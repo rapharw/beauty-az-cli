@@ -39,6 +39,9 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
                 let filePath = path.resolve(path.join(dirPath, "/", file), '.');
                 let replaced = filePath.replace(parentPath, "").replace("/operations","").replace("\\operations","");
 
+                // console.log("parentPath:" + parentPath);
+                // console.log("filePath:" + filePath);
+                // console.log("replaced:" + replaced);
                 
                 arrayOfFiles.push(replaced);
             }
@@ -58,6 +61,7 @@ export default class AzCliGetOperations {
     constructor() {
 
         getFiles(AzCliGetOperations.FILE_PATH).forEach(element => {
+            // console.log("element: " + element);
 
             let indexRequired = require("." + element);
             
