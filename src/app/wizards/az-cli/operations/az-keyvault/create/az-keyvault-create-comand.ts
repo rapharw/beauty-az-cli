@@ -8,13 +8,6 @@ export default (azLocation: string, keyvault: string, resourceGroup: string, sub
     return new Promise<any>((resolve, reject) => {
         try {
             commandExecution(`az keyvault create --location ${azLocation} --name ${keyvault} --resource-group ${resourceGroup} --subscription ${subscription}`, printConsole, (data: string) => {
-                console.log(data);
-                // const locations: Location[] = JSON.parse(data);
-                // resolve(
-                //     locations.map(location => {
-                //         return { name: location.name, displayName: location.displayName }
-                //     })
-                // );
                 resolve(true);
             },
             azCliWarningNotLogged)
