@@ -1,11 +1,13 @@
-import Create from "./create/create";
+import azKeyvaultListCommand from "./list/az-keyvault-list-command";
+import List from "./list/list";
 
-export default class KeyVault implements Create {
+export default class KeyVault implements List{
 
     constructor() {
     }
-    create(azLocation: string, keyvault: string, resourceGroup: string, subscription: string): Promise<any> {
-        throw new Error("Method not implemented.");
+
+    async list(resourceGroup: string, subscription: string): Promise<any> {
+        return azKeyvaultListCommand(resourceGroup, subscription);
     }
     
 }

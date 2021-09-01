@@ -37,7 +37,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
                 
                 let parentPath = path.resolve(dirPath, '..', "..");
                 let filePath = path.resolve(path.join(dirPath, "/", file), '.');
-                let replaced = filePath.replace(parentPath, "").replace("/operations","");
+                let replaced = filePath.replace(parentPath, "").replace("/operations","").replace("\\operations","");
 
                 
                 arrayOfFiles.push(replaced);

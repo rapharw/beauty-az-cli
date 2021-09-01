@@ -24,7 +24,6 @@ export default class AzCliAzWebAppListOperationIndex extends OperationIndex {
         const resourceGroupAutocomplete = await resourceGroupQuestionSelect(subscriptionResult.subscription);
         const resourceGroupResult = await resourceGroupAutocomplete.ask();
         
-
         const confirmationQuestion = await questionConfirmation();
         const confirm = await confirmationQuestion.ask();
         
