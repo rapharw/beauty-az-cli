@@ -103,7 +103,8 @@ export default {
       type: 'rawlist',
       name: name,
       message: message,
-      choices: choices
+      choices: choices,
+      pageSize: 15
     }
     ];
     return inquirer.prompt(questions);
@@ -115,7 +116,8 @@ export default {
       type: 'checkbox',
       name: name,
       message: message,
-      choices: choices
+      choices: choices,
+      pageSize: 15
     }
     ];
     return inquirer.prompt(questions);

@@ -6,11 +6,18 @@ import azWebappIdentityShowCommand from "./identity/az-webapp-identity-show-comm
 import ShowIdentity from "./identity/show-identity";
 import azWebappListCommand from "./list/az-webapp-list-command";
 import List from "./list/list";
+import ConfigAppSettings from "./config/config-appsettings";
+import environmentVariable from "./config/environment-variable";
+import azWebappConfigAppsettingsListCommand from "./config/az-webapp-config-appsettings-list-command";
 
-export default class WebApp implements List, AssignIdentity, ShowIdentity {
+export default class WebApp implements List, AssignIdentity, ShowIdentity, ConfigAppSettings {
 
     constructor(
     ) { }
+
+    async listEnvironmentVariables(appService: string, subscription: string, resourceGroup: string): Promise<environmentVariable[]> {
+        return await azWebappConfigAppsettingsListCommand(appService, resourceGroup, subscription);
+    }
     
     /**
      * List webapp´s

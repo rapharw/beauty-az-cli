@@ -19,7 +19,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file.includes('-operation-index.js')) {
+            if (file.includes('-operation-index.js') || file.includes('-operation-index.ts')) {
                 // console.log("***********");
                 // console.log("1"+ "||"+ file);
                 // console.log("2"+ "||"+ dirPath);

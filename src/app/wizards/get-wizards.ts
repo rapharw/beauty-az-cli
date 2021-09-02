@@ -19,7 +19,7 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             arrayOfFiles = getFiles(dirPath + "/" + file, arrayOfFiles)
         } else {
-            if (file.includes('-wizard-index.js')) {
+            if (file.includes('-wizard-index.js') || file.includes('-wizard-index.ts')) {
                 arrayOfFiles.push(path.join(dirPath, "/", file).replace(path.resolve(dirPath, '..'), ""));
             }
         }
