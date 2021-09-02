@@ -5,10 +5,16 @@ import List from "./list/list";
 import azKeyvaultSetPolicyCommand from "./set-policy/az-keyvault-set-policy-command";
 import Policy from "./set-policy/policy";
 import Identity from "../az-webapp/identity/identity";
+import Secret from "./secret/secret";
+import azKeyvaultSecretSetCommand from "./secret/az-keyvault-secret-set-command";
 
-export default class KeyVault implements List, Create, Policy{
+export default class KeyVault implements List, Create, Policy, Secret{
     
     constructor() {
+    }
+
+    async createSecret(keyvaultName: string, keyvaultSecretName: string, keyvaultSecretValue: string, subscription: string): Promise<any> {
+        return azKeyvaultSecretSetCommand(keyvaultName, keyvaultSecretName, keyvaultSecretValue, subscription);
     }
 
     async setPolicy(identity: Identity, keyvault: string, resourceGroup: string, subscription: string): Promise<any> {
