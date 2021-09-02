@@ -7,10 +7,15 @@ import Policy from "./set-policy/policy";
 import Identity from "../az-webapp/identity/identity";
 import Secret from "./secret/secret";
 import azKeyvaultSecretSetCommand from "./secret/az-keyvault-secret-set-command";
+import azKeyvaultSecretListCommand from "./secret/az-keyvault-secret-list-command";
 
 export default class KeyVault implements List, Create, Policy, Secret{
     
     constructor() {
+    }
+
+    async listSecrets(keyvaultName: string, subscription: string): Promise<any> {
+        return azKeyvaultSecretListCommand(keyvaultName, subscription);
     }
 
     async createSecret(keyvaultName: string, keyvaultSecretName: string, keyvaultSecretValue: string, subscription: string): Promise<any> {

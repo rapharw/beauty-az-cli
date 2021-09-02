@@ -9,11 +9,22 @@ import List from "./list/list";
 import ConfigAppSettings from "./config/config-appsettings";
 import environmentVariable from "./config/environment-variable";
 import azWebappConfigAppsettingsListCommand from "./config/az-webapp-config-appsettings-list-command";
+import azWebappConfigAppsettingsSetCommand from "./config/az-webapp-config-appsettings-set-command";
 
 export default class WebApp implements List, AssignIdentity, ShowIdentity, ConfigAppSettings {
 
     constructor(
     ) { }
+
+    async assignEnvironmentVariableToAKeyVault(environmentVariableName: string, keyvault: string, keyvaultSecretName: string, appService: string, resourceGroup: string, subscription: string): Promise<any> {
+        
+        const urlKeyVault = `@Microsoft.KeyVault(SecretUri=https://${keyvault}.vault.azure.net/secrets/${keyvaultSecretName})`
+        return await this.setEnvironmentVariables(environmentVariableName, urlKeyVault, appService, resourceGroup, subscription);
+    }
+
+    async setEnvironmentVariables(environmentVariableName: string, environmentVariableValue: string, appService: string, resourceGroup: string, subscription: string): Promise<any> {
+        return await azWebappConfigAppsettingsSetCommand(environmentVariableName, environmentVariableValue, appService, resourceGroup, subscription);
+    }
 
     async listEnvironmentVariables(appService: string, subscription: string, resourceGroup: string): Promise<environmentVariable[]> {
         return await azWebappConfigAppsettingsListCommand(appService, resourceGroup, subscription);

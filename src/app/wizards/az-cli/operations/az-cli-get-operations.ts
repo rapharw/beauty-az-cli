@@ -34,15 +34,15 @@ const getFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
                 // console.log("10"+ "||"+ path.resolve(path.join(dirPath, "/", file), '.'));
                 // console.log("11"+ "||"+ path.resolve(path.join(dirPath, "/", file)));
                 // console.log("RESOLVED: "+ path.join(dirPath, "/", file).replace(path.resolve(dirPath, '..'), ""));
-                
+
                 let parentPath = path.resolve(dirPath, '..', "..");
                 let filePath = path.resolve(path.join(dirPath, "/", file), '.');
-                let replaced = filePath.replace(parentPath, "").replace("/operations","").replace("\\operations","");
+                let replaced = filePath.replace(parentPath, "").replace("/operations", "").replace("\\operations", "");
 
                 // console.log("parentPath:" + parentPath);
                 // console.log("filePath:" + filePath);
                 // console.log("replaced:" + replaced);
-                
+
                 arrayOfFiles.push(replaced);
             }
         }
@@ -64,13 +64,28 @@ export default class AzCliGetOperations {
             // console.log("element: " + element);
 
             let indexRequired = require("." + element);
-            
+
             let operationdIndex: OperationIndex = new indexRequired.default();
 
             let operationChoice: Choice = operationdIndex.getChoice();
 
             this.operationsMap.set(operationChoice.value, operationdIndex);
             this.choices.push(operationChoice);
+        });
+
+
+        this.choices.sort(function (choiceA: Choice, choiceB: Choice) {
+            var nameA = choiceA.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = choiceB.name.toUpperCase(); // ignore upper and lowercase
+            
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            // names must be equal
+            return 0;
         });
 
     }

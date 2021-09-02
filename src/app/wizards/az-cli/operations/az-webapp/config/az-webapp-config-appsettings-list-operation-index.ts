@@ -6,7 +6,7 @@ import subscriptionQuestionSelect from "../../shared/subscription-question-selec
 import WebApp from "../webapp";
 import webappQuestionInputAutocomplete from "../../shared/webapp-question-input-autocomplete";
 
-export default class AzCliAzWebAppListOperationIndex extends OperationIndex {
+export default class AzCliAzWebAppConfigAppSettingsListOperationIndex extends OperationIndex {
 
     getChoice(): Choice {
         return new Choice(

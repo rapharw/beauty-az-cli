@@ -3,6 +3,8 @@ inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
 
 import Choice from "../../lib/inquirer/choice";
 
+const pageSizeSelection = 20;
+
 export default {
 
   templateInput: () => {
@@ -72,7 +74,7 @@ export default {
         message: message,
         default: 'a',
         suggestOnly: false,
-        pageSize: 15,
+        pageSize: pageSizeSelection,
         source: function (answersSoFar: [], input: string) {
           input = input || '';
           return choices.filter((choice: Choice) => choice.name.toLowerCase().startsWith(input.toLowerCase()));
@@ -104,7 +106,7 @@ export default {
       name: name,
       message: message,
       choices: choices,
-      pageSize: 15
+      pageSize: pageSizeSelection
     }
     ];
     return inquirer.prompt(questions);
@@ -117,7 +119,7 @@ export default {
       name: name,
       message: message,
       choices: choices,
-      pageSize: 15
+      pageSize: pageSizeSelection
     }
     ];
     return inquirer.prompt(questions);

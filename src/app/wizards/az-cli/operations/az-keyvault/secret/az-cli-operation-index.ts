@@ -6,7 +6,7 @@ import subscriptionQuestionSelect from "../../shared/subscription-question-selec
 import KeyVault from "../keyvault";
 import keyvaultQuestionInputAutocomplete from "../../shared/keyvault-question-input-autocomplete";
 import keyvaultSecretNameQuestionInput from "../../shared/keyvault-secret-name-question-input";
-import keyvaultSecretValueQuestionInput from "../../shared/keyvault-secret-value-question-input";
+import keyvaultSecretValueQuestionInput from "../../shared/keyvault-secret-value-question-input-password";
 
 export default class AzCliAzKeyVaultSecretSetOperationIndex extends OperationIndex {
 
